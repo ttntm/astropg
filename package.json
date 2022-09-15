@@ -1,0 +1,30 @@
+{
+  "name": "astropg",
+  "version": "1.0.0",
+  "description": "Astro playground repository",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttntm/astropg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttntm/astropg/issues"
+  },
+  "homepage": "https://github.com/ttntm/astropg#readme",
+  "dependencies": {
+    "@astrojs/tailwind": "^2.0.0",
+    "@astrojs/vue": "^1.0.2",
+    "astro": "^1.2.4",
+    "tailwindcss": "^3.1.8",
+    "vue": "^3.2.39"
+  }
+}
