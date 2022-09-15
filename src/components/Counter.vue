@@ -1,16 +1,21 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { useStore } from '@nanostores/vue'
+  // import { ref } from 'vue'
+  import { count, clearCount, increaseCount } from '@store/Common.Store'
 
-  const count = ref<number>(0)
+  const current = useStore(count)
 
-  const add = () => count.value = count.value + 1
+  const add = () => increaseCount()
 
-  const clear = () => count.value = 0
+  const clear = () => clearCount()
 </script>
 
 <template>
   <div class="container">
-    <p>Count: {{ count }}</p>
+    <h2 class="font-bold">
+      <slot>Counter</slot>
+    </h2>
+    <p>Count: {{ current }}</p>
     <div class="row mt-8">
       <button class="counter-btn mr-8" @click="add">Add</button>
       <button class="counter-btn" @click="clear">Clear</button>

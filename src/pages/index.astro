@@ -1,16 +1,33 @@
 ---
-import Counter from '../components/Counter.vue'
+import { useStore } from '@nanostores/vue'
+import { count } from '@store/Common.Store'
+
+import Counter from '@components/Counter.vue'
+
+import '@globalStyles'
+
+const globalCount = useStore(count)
 ---
 <!-- Below is your "component template." It's just HTML, but with
      some magic sprinkled in to help you build great templates. -->
 <html>
   <body>
-    <h1>Hello, World!</h1>
+    <section class="flex flex-col w-1/2 mx-auto">
+      <h1>Hello, World!</h1>
+      <ul class="text-sm mt-8">
+        {Object.keys(globalCount).map(key => (
+          <>
+            <li>{key}: {(globalCount as any)[key]}</li>
+          </>
+        ))}
+      </ul>
+    </section>
     <Counter client:load />
+    <Counter client:load>Second Counter</Counter>
   </body>
 </html>
 <style>
   h1 {
-    color: orange;
+    @apply text-orange-600;
   }
 </style>
