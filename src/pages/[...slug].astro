@@ -1,0 +1,27 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro'
+import { getLinks, getStory } from '@lib/storyblok.js'
+
+export async function getStaticPaths() {
+  let links = await getLinks()
+  links = Object.values(links)
+ 
+  const routes = links.map((link: any) => {
+    return {
+      params: {
+        slug: link.slug === 'undefined' ? undefined : link.slug
+      }
+    }
+  })
+
+  console.log(routes)
+
+  return routes
+}
+ 
+const { slug } = Astro.params
+ 
+const story = await getStory(slug)
+---
+ 
+<BaseLayout story={story} />
