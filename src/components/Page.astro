@@ -1,9 +1,14 @@
 ---
-import StoryblokWrapper from '@components/Storyblok/Wrapper.astro'
- 
-const { story } = Astro.props
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const { blok } = Astro.props
 ---
 
-<main>
-  <StoryblokWrapper story={story} />
+<main {...storyblokEditable(blok)}>
+  {
+    blok.body?.map((blok: any) => {
+      return <StoryblokComponent blok={blok} />
+    })
+  }
 </main>

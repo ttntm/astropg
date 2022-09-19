@@ -1,0 +1,15 @@
+---
+import { renderRichText, storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+
+const renderedRichText = renderRichText(blok.content)
+---
+
+<article {...storyblokEditable(blok)} class="w-full md:w-1/2 mx-auto">
+  <h2 class='text-4xl font-bold text-primary py-8'>
+    {blok.title}
+  </h2>
+  <p class="text-sm mb-8">{blok.date}</p>
+  <div set:html={renderedRichText} class="prose mb-12" />
+</article>
