@@ -13,11 +13,16 @@ export default defineConfig({
       accessToken: process.env.SB_TOKEN,
       bridge: false,
       components: {
-        page: 'components/Page',
-        feature: 'components/storyblok/Feature',
-        grid: 'components/storyblok/Grid',
+        // Content types
+        page: 'components/storyblok/Page',
         post: 'components/storyblok/Post',
-        teaser: 'components/storyblok/Teaser'
+        
+        // Sections
+        feature: 'components/storyblok/sections/Feature',
+        grid: 'components/storyblok/sections/Grid',
+        
+        // Bloks
+        teaser: 'components/storyblok/bloks/Teaser'
       }
     }),
     tailwind(),

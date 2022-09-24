@@ -1,9 +1,14 @@
 ---
 import { renderRichText, storyblokEditable } from '@storyblok/astro'
+import resolveComponent from '@lib/componentResolver'
 
 const { blok } = Astro.props
 
-const renderedRichText = renderRichText(blok.content)
+const renderedRichText = renderRichText(blok.content, {
+  resolver: (component: string, blok: any) => {
+    return resolveComponent(component, blok)
+  }
+})
 ---
 
 <article {...storyblokEditable(blok)} class="w-full md:w-1/2 mx-auto">

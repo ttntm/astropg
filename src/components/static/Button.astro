@@ -1,0 +1,11 @@
+---
+const { buttonText } = Astro.props
+---
+
+<div class="w-full text-center">
+  <button class="inline-block text-white bg-slate-800 cursor-pointer py-1 px-6 mx-auto">
+    {
+      buttonText ? buttonText : <slot />
+    }
+  </button>
+</div>
